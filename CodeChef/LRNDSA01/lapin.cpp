@@ -7,7 +7,7 @@ bool checklapin(string str)
   int last=str.size()-1;
   int first=0;
   int hash[256];
-  while(fist<last)
+  while(first<last)
   {
     int fchar_as=str[first]+0;
     int lchar_as=str[last]+0;
@@ -16,13 +16,10 @@ bool checklapin(string str)
     first++;
     last--;
   }
-  for(int i=0;i<256;i++0
-  {
+  for(int i=0;i<256;i++)
     if(hash[i]!=0)
       return false;
-    else
-      return true;
-  }
+  return true;
 }
 
 int main()
@@ -36,11 +33,11 @@ int main()
     bool islapin=checklapin(str);
     if(islapin)
     {
-      printf("YES"):
+      printf("YES\n");
      }
      else
      {
-      printf("NO");
+      printf("NO\n");
       }
    }
    return 0;
