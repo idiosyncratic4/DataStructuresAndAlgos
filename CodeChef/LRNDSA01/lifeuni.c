@@ -1,16 +1,17 @@
-#include <stdio.h>
+#include<stdio.h>
+int main()
+{
 
-int main(void) {
-	// your code goes here
-	int t=0;
-	while(t!=42)
-	{
-	    scanf("%i",&t);
-	    if(t!=42)
-	    {
-	        printf("%i",&t);
-	    }
-	}
-	return 0;
+int t=0;
+while( t!=42)
+{
+   scanf("%i",&t);
+   if (t!=42)
+   {
+       printf("%i\n",t);
+   }
+
 }
-
+return 0;
+   
+}
