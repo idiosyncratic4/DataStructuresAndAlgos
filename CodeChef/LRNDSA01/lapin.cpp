@@ -6,7 +6,7 @@ bool checklapin(string str)
 {
   int last=str.size()-1;
   int first=0;
-  int hash[256];
+  int hash[256]={0};
   while(first<last)
   {
     int fchar_as=str[first]+0;
