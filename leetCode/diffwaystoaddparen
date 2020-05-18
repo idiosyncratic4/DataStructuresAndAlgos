@@ -1,0 +1,50 @@
+class Solution {
+public:
+    vector<int> diffWaysToCompute(string input) {
+         unordered_map<string, vector<int>> hash;
+         auto res = helper(input, hash);
+        return res;
+    }
+    
+    vector<int> helper(string input, unordered_map<string, vector<int>> &hash) {
+        if (input.empty()) {
+            return {};
+        }
+        auto iter = hash.find(input);
+        if (iter != hash.end()) {
+            return iter->second;
+        }
+        vector<int> res;
+        for (int i = 0; i < input.size(); ++i) {
+            if (input[i]>='0' && input[i] <= '9') {
+                continue;
+            }
+           
+            auto left_res = helper(input.substr(0, i), hash);
+            auto right_res = helper(input.substr(i+1), hash);
+            for (auto lhs : left_res) {
+                for (auto rhs : right_res) {
+                    switch(input[i]) {
+                        case '*':
+                            res.push_back(lhs*rhs);
+                            break;
+                        case '+':
+                            res.push_back(lhs+rhs);
+                            break;
+                        case '-':
+                            res.push_back(lhs-rhs);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+            
+        }
+        if (res.empty()) {
+            res.push_back(stoi(input));
+        }
+        hash[input] = res;
+        return res;
+    }
+};
