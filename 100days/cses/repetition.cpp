@@ -11,15 +11,18 @@ freopen("output.txt", "w", stdout);
    long long int currentMax=1, maxSoFar=1;
    long long int length =strlen(str);
    for(int  i =1; i<length; i++) {
-    if(!(str[i]^str[i-1])) currentMax++;
-    else{
-        if(currentMax > maxSoFar)
+    if(!(str[i]^str[i-1]))
+    {
+       currentMax++;
+    }
+    else if(currentMax > maxSoFar)
         {
             maxSoFar  =  currentMax;
             currentMax =1;
         }
+       else{
         currentMax =1;
-    }
+         }
 
    }
    maxSoFar = maxSoFar>currentMax ? maxSoFar:currentMax;
